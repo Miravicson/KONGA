@@ -38,7 +38,7 @@
                 <span class="icon-bar"></span>
             </button>
             {#            <a class="navbar-brand" href="#">Brand</a>#}
-            <a class="navbar-brand waves-effect waves-light" href="#">
+            <a class="navbar-brand waves-effect waves-light" href="{% url 'konga:home' %}">
                 <img src="{% static 'webapp/img/logo.png' %}" class="img-responsive" id="logo" height="62px">
             </a>
         </div>
@@ -55,6 +55,9 @@
                 <li><a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;Liked Items</a></li>
                 <li><a href="#"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i>&nbsp;Cart&nbsp; <span
                         class="badge">5</span></a></li>
+                {% block checkout %}
+                <li><a href="{% url 'konga:signup' %}"><i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;Check out</a></li>
+                {% endblock checkout %}
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
