@@ -10,22 +10,42 @@
 
 {% endblock section %}
 {% block content %}
-
+{% load crispy_forms_tags %}
+    {% if confirm_message is None %}
     <div class="container">
         <h2 align="center">Sign Up</h2>
     </div>
+    {% else %}
+    <div class="container">
+        <h2 align="center">Login</h2>
+    </div>
+    {% endif %}
 
     <div class="row">
-        <div class="col-md-8 col-md-offset-2 well">
+        <div class="col-md-6 col-md-offset-3 well">
             {% if confirm_message is None %}
-            <form method="POST" action="">
-                {% csrf_token %}
-                {{ form.as_p }}
-                <input type="submit" class="btn btn-warning" value="Submit form">
-            </form>
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    {{ form | crispy }}
+                    <input type="submit" class="btn btn-warning" value="Submit form">
+                </form>
+                <h4> or  login</h4>
+                <a type="button" class="btn btn-success" href="{% url 'konga:login' %}">Login</a>
             {% else %}
                 <h2>{{ confirm_message }}</h2>
+
+                <form method="POST" action="{% url 'konga:verify' %}">
+                    {% csrf_token %}
+                    {{ form2 | crispy }}
+                    <input type="submit" class="btn btn-success" value="Login">
+                </form>
             {% endif %}
+            {% if error_message %}
+                <div class="text-danger">
+                    <h2>{{ error_message }}</h2>
+                </div>
+            {% endif %}
+
         </div>
     </div>
 

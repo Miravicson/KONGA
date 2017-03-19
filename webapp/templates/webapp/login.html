@@ -1,0 +1,32 @@
+{% extends 'webapp/header.html' %}
+
+{% block title %}
+    Login
+{% endblock title %}
+{% block checkout %}
+
+{% endblock checkout %}
+{% block section %}
+
+{% endblock section %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+    <div class="container">
+        <h2 align="center">Login</h2>
+    </div>
+
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2 well">
+
+            <form method="POST" action="{% url 'konga:verify' %}">
+                {% csrf_token %}
+                {{ form2| crispy }}
+                <input type="submit" class="btn btn-success" value="Login">
+            </form>
+
+
+        </div>
+    </div>
+
+{% endblock content %}
