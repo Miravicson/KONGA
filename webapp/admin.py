@@ -4,7 +4,7 @@ from .models import Profile
 # Register your models here.
 # class Profile(admin.ModelAdmin):
 #     class Meta:
-#         model = profile
+#         model = Profile
 
 admin.site.register(Profile)
 
