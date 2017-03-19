@@ -1,5 +1,4 @@
-
 db.sqlite3
 .idea/
 KONGA/__pycache__/
-KONGA/webapp/migrations/
+webapp/webapp/migrations/
