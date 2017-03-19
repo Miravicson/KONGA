@@ -58,6 +58,7 @@
                 {% block checkout %}
                 <li><a href="{% url 'konga:signup' %}"><i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;Check out</a></li>
                 {% endblock checkout %}
+                {% url 'home' as home %}
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

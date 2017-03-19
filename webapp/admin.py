@@ -1,9 +1,10 @@
 from django.contrib import admin
-from .models import Catalog, CatalogCategory, Product, ProductAttribute, ProductDetail
-# Register your models here.
+from .models import profile
 
-admin.site.register(CatalogCategory)
-admin.site.register(Product)
-admin.site.register(ProductDetail)
-admin.site.register(Catalog)
-admin.site.register(ProductAttribute)
+# Register your models here.
+class Profile(admin.ModelAdmin):
+    class Meta:
+        model = profile
+
+admin.site.register(profile, Profile)
+
