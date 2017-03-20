@@ -1,1 +1,1 @@
-web: gunicorn KONGA.wsgi --log-file -
+web: python manage.py runserver
