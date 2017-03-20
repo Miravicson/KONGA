@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'webapp',
     'crispy_forms',
+    'kongaapi',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
