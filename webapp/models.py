@@ -18,8 +18,12 @@ class Profile(models.Model):
 
 
 class Orders(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     proxy_first_name = models.CharField(max_length=300, default='pfn')
     proxy_last_name = models.CharField(max_length=300, default='pln')
     proxy_phone_number = models.CharField(max_length=14, default='Enter the your proxy user phone number')
     is_registered_to_kongapay = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.user.username

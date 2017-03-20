@@ -17,7 +17,7 @@ class LoginForms(forms.Form):
 
 
 class OrdersForms(forms.Form):
-    proxy_first_name = forms.CharField(required=False, max_length=100, help_text='enter your proxy first name')
-    proxy_last_name = forms.CharField(required=False, max_length=100, help_text='enter your proxy last name')
-    proxy_phone_number = forms.CharField(required=False, max_length=100, help_text='enter your proxy phone number')
-    is_registered_to_kongapay = forms.BooleanField(required=False, widget=forms.CheckboxInput, label='Paying with Konga Pay?')
+    proxy_first_name = forms.CharField(required=True, max_length=100, help_text='enter your proxy first name')
+    proxy_last_name = forms.CharField(required=True, max_length=100, help_text='enter your proxy last name')
+    proxy_phone_number = forms.CharField(required=True, max_length=100, help_text='enter your proxy phone number')
+    is_registered_to_kongapay = forms.BooleanField(required=False, widget=forms.CheckboxInput, label='Have Konga Pay Account?')
