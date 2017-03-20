@@ -1,5 +1,5 @@
 django-crispy-forms
-dj-databse-url==0.4.1
+dj-database-url==0.4.1
 djangorestframework
 Django==1.10
 gunicorn==19.4.5
