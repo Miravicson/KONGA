@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import ListView
-from webapp.models import Profile
+from webapp.models import Profile, Orders
 from .forms import ContactForms, LoginForms, OrdersForms
 from django.shortcuts import get_object_or_404
 from rest_framework.views import APIView
@@ -16,20 +16,21 @@ from .serializer import UserSerializer, OrderSerilizer
 # Create your views here.
 class UserList(APIView):
 
-    def get(self,request):
+    def get(self, request):
         users = User.objects.all()
-        for user in users:
-            userorders = users.orders_set.all()
-            serializer = UserSerializer(users, userorders, many=True)
+        serializer = UserSerializer(users, many=True)
         return Response(serializer.data)
         pass
 
     def post(self):
         pass
 
-# class OrderList(APIView):
-#
-#     def get(self, request):
+class OrderList(APIView):
+
+    def get(self, request):
+        orders = Orders.objects.all()
+        serializer = OrderSerilizer(orders, many=True)
+        return Response(serializer.data)
 
 
 
@@ -118,7 +119,7 @@ def login(request):
 
 
 def saveorder(request, userid):
-    user = User.objects.get(pk=userid)
+    user = User.objects.get(pk=(userid))
     form3 = OrdersForms(request.POST or None)
     if form3.is_valid():
         proxy_first_name = form3.cleaned_data['proxy_first_name']

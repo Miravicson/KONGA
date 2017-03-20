@@ -1,7 +1,7 @@
 from django.conf.urls import url
 from rest_framework.urlpatterns import format_suffix_patterns
 
-from webapp.views import Index, Rotatecard, signup, login, verify, saveorder, UserList
+from webapp.views import Index, Rotatecard, signup, login, verify, saveorder, UserList, OrderList
 
 app_name = 'konga'
 urlpatterns = [
@@ -12,6 +12,7 @@ urlpatterns = [
     url(r'^login/$', login, name='login'),
     url(r'^saveorder(?P<userid>\d+)/$', saveorder, name='saveorder'),
     url(r'^kongaapi/$', UserList.as_view(), name='kongaapi'),
+    url(r'^orderapi/$', OrderList.as_view(), name='orderapi'),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

@@ -18,7 +18,7 @@ class Profile(models.Model):
 
 
 class Orders(models.Model):
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    # profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     proxy_first_name = models.CharField(max_length=300, default='pfn')
     proxy_last_name = models.CharField(max_length=300, default='pln')
