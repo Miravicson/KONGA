@@ -1,0 +1,8 @@
+{
+	"name": "Start on Heroku: Python",
+	"description": "An e-commerce application for Konga GOC",
+	"image": "heroku/python",
+	"repository": "https://github.com/Miravicson/KONGA.git",
+	"keywords": ["python", "django" ],
+	"addons": [ "heroku-postgresql" ]
+}
